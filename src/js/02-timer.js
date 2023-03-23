@@ -41,6 +41,7 @@ const options = {
 flatpickr('#datetime-picker', options);
 
 startBtn.addEventListener('click', () => {
+  startBtn.disabled = true
   const counterInterval = setInterval(() => {
     daysCounter.textContent = addLeadingZero(
       convertMs(selectedDate - new Date()).days
@@ -60,6 +61,7 @@ startBtn.addEventListener('click', () => {
     });
     if (isDone === true) {
       clearInterval(counterInterval);
+      startBtn.disabled = true
 
       playSound(
         'https://drive.google.com/uc?id=1R3PAuwKo72qDEOHgj3CDL3S2TRKjj4nS&export=download'
