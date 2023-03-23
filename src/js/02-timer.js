@@ -15,6 +15,8 @@ const secondsCounter = document.querySelector('[data-seconds]');
 
 let selectedDate;
 
+startBtn.disabled = true
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -23,7 +25,7 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       startBtn.disabled = true;
-      playSound('http://soundbible.com/grab.php?id=1252&type=mp3')
+      playSound('http://soundbible.com/grab.php?id=1252&type=mp3');
       Notiflix.Report.failure(
         'Error!',
         'Please, choose a date in the future.',
@@ -58,8 +60,10 @@ startBtn.addEventListener('click', () => {
     });
     if (isDone === true) {
       clearInterval(counterInterval);
-    
-      playSound('https://drive.google.com/uc?id=1R3PAuwKo72qDEOHgj3CDL3S2TRKjj4nS&export=download')
+
+      playSound(
+        'https://drive.google.com/uc?id=1R3PAuwKo72qDEOHgj3CDL3S2TRKjj4nS&export=download'
+      );
       Notiflix.Report.success(
         'Success!',
         'The timer has expired.',
@@ -96,6 +100,6 @@ function addLeadingZero(value) {
 }
 
 function playSound(url) {
-    const audio = new Audio(url);
-    audio.play();
-  }
+  const audio = new Audio(url);
+  audio.play();
+}
