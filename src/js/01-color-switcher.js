@@ -6,6 +6,7 @@ function getRandomHexColor() {
 
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
+const clickMeBtn = document.querySelector('[data-click]')
 const body = document.querySelector('body');
 
 startBtn.addEventListener('click', () => {
@@ -23,3 +24,7 @@ startBtn.addEventListener('click', () => {
     clearInterval(bodyColorInterval);
   });
 });
+
+clickMeBtn.addEventListener('click', () => {
+  alert("Don't you dare fucking click me again. Stop right now")
+})
