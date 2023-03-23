@@ -57,6 +57,12 @@ startBtn.addEventListener('click', () => {
     });
     if (isDone === true) {
       clearInterval(counterInterval);
+
+      Notiflix.Report.success(
+        'Success!',
+        'The timer has expired.',
+        'Close message'
+      );
     }
   }, 1000);
 });
