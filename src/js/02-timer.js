@@ -3,6 +3,8 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+import Notiflix from 'notiflix';
+
 const startBtn = document.querySelector('[data-start]');
 const spanCounters = document.querySelectorAll('.value');
 
@@ -21,7 +23,11 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       startBtn.disabled = true;
-      alert('Please choose a date in the future');
+      Notiflix.Report.failure(
+        'Error!',
+        'Please, choose a date in the future.',
+        'Close message'
+      );
     } else {
       startBtn.disabled = false;
       selectedDate = selectedDates[0];
